@@ -1,39 +1,38 @@
 let cor;
-let vertical;
-let horizontal;
+let circuloY;
+let circuloX;
 
 
 function setup() {
   createCanvas(1000, 800);
    background("white");
 cor=color(random(0,255),random(0,255),random(0,255));
-vertical = 400;
-  horizontal = 500;
+ circuloX = [0,0,0];
+  circuloY =[random(height),random(height),random(height)]
   
   
-  
+
 }
 
 
 function draw() {
+  for (let quantos in circuloX) {
+    circle(circuloX[quantos],circuloY[quantos],50);
+    
+    circuloX[quantos]+= random (0,3);
+    circuloY[quantos]+= random (-3,3);
+    
+    
+    if (circuloX[quantos] >= width) {
+      circuloX[quantos] = 0;
+      circuloY[quantos] = random(height);
+    }
   
-  circle(horizontal,vertical,50)
-fill(cor);
+    }
+    
+fill (cor);
 
   
-if (mouseX < horizontal) {
-  horizontal--
-}
-if (mouseX > horizontal) {
-  horizontal++
-   }
-if (mouseY < vertical) {
-  vertical--
-
-}
-if (mouseY > vertical) {
-  vertical++
-}
 
   if (mouseIsPressed){
     
